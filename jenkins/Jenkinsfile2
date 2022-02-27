@@ -7,9 +7,7 @@ pipeline {
                 sh 'mvn clean install -T 1C -Dmaven.compile.fork=true -Dmaven.test.skip=true'
             }
         }
-        
         stage('copy class'){
-            def buildHotClass = load('./jenkins/buildHotClass.groovy')
             steps{
                 echo 'echo copy class'
                 script{
@@ -19,7 +17,6 @@ pipeline {
         }
 
         stage('zip class'){
-            def buildHotClass = load('./jenkins/buildHotClass.groovy')
             steps{
                 echo 'echo zip class'
                 script{
