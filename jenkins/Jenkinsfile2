@@ -1,6 +1,11 @@
 pipeline {
+    agent any
+    tools {
+        maven 'maven'
+        jdk 'openjdk8'
+    }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
                 sh 'mvn clean install -T 1C -Dmaven.compile.fork=true -Dmaven.test.skip=true' 
             }
