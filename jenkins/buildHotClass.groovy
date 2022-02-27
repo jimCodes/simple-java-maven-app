@@ -1,9 +1,10 @@
 
-def cpClassFromJar(){
-    println("cpClassFromJar");
-}
+class buildHotClass{
+    def cpClassFromJar(){
+        println("cpClassFromJar");
+    }
 
-def buildClsasZip(){
-    println("buildClsasZip");
+    def buildClsasZip(){
+        println("buildClsasZip");
+    }
 }
-return this;
