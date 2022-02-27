@@ -23,9 +23,9 @@ pipeline {
                     def module_name = manager.build.buildVariables.get("SERVER_NAME")
                     manager.addShortText("module_name: " + module_name)
                     println("-module_name: " + module_name)
-                    def tag = manager.build.buildVariables.get("TAG")
-                    manager.addShortText("tag: " + tag)
-                    println("-tag: " + tag)
+                    def tag = manager.build.buildVariables.get("CLASS_NAME_LIST")
+                    manager.addShortText("CLASS_NAME_LIST: " + tag)
+                    println("-CLASS_NAME_LIST: " + tag)
 
                 }
             }
