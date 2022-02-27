@@ -7,22 +7,32 @@ pipeline {
                 sh 'mvn clean install -T 1C -Dmaven.compile.fork=true -Dmaven.test.skip=true'
             }
         }
-        stage('copy class'){
+        stage('clear old class'){
             steps{
-                echo 'echo copy class'
+                echo 'clear old class'
                 script{
-                    println("hahahhaha")
+
                 }
             }
         }
 
-//         stage('zip class'){
-//             steps{
-//                 echo 'echo zip class'
-//                 script{
-//                     buildHotClass.buildClsasZip();
-//                 }
-//             }
-//         }
+        stage('zip class'){
+            steps{
+                echo 'echo zip class'
+                echo "module: ${SERVER_NAME}"
+                echo "class_list: ${CLASS_NAME}"
+                DIR=`pwd`
+                echo "DIR=${DIR}"
+                script{
+                    def module_name = manager.build.buildVariables.get("SERVER_NAME")
+                    manager.addShortText("module_name: " + module_name)
+                    println("-module_name: " + module_name)
+                    def tag = manager.build.buildVariables.get("TAG")
+                    manager.addShortText("tag: " + tag)
+                    println("-tag: " + tag)
+
+                }
+            }
+        }
     }
 }
