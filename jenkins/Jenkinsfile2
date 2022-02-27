@@ -8,10 +8,14 @@ pipeline {
             }
         }
         stage('copy class'){
-            buildHotClass.cpClassFromJar();
+            script{
+                buildHotClass.cpClassFromJar();
+            }
         }
         stage('zip class'){
-            buildHotClass.buildClsasZip();
+            script{
+                buildHotClass.buildClsasZip();
+            }
         }
     }
 }
