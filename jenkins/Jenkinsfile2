@@ -11,18 +11,18 @@ pipeline {
             steps{
                 echo 'echo copy class'
                 script{
-                    buildHotClass.cpClassFromJar();
+                    println("hahahhaha")
                 }
             }
         }
 
-        stage('zip class'){
-            steps{
-                echo 'echo zip class'
-                script{
-                    buildHotClass.buildClsasZip();
-                }
-            }
-        }
+//         stage('zip class'){
+//             steps{
+//                 echo 'echo zip class'
+//                 script{
+//                     buildHotClass.buildClsasZip();
+//                 }
+//             }
+//         }
     }
 }
