@@ -1,5 +1,5 @@
 pipeline {
-    def buildHotClass = load('./jenkins/buildHotClass.groovy')
+    //def buildHotClass = load('./jenkins/buildHotClass.groovy')
     agent any
     stages {
         stage('build') {
@@ -7,6 +7,7 @@ pipeline {
                 sh 'mvn clean install -T 1C -Dmaven.compile.fork=true -Dmaven.test.skip=true'
             }
         }
+        def buildHotClass = load('./jenkins/buildHotClass.groovy')
         stage('copy class'){
             steps{
                 echo 'echo copy class'
