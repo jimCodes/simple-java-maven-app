@@ -1,8 +1,9 @@
 
 def cpClassFromJar(){
-    println("cpClassFromJar")
+    println("cpClassFromJar");
 }
 
 def buildClsasZip(){
-    println("buildClsasZip")
+    println("buildClsasZip");
 }
+return this;
