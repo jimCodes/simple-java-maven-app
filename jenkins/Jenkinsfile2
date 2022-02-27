@@ -10,7 +10,6 @@ pipeline {
         stage('copy class'){
             buildHotClass.cpClassFromJar();
         }
-
         stage('zip class'){
             buildHotClass.buildClsasZip();
         }
