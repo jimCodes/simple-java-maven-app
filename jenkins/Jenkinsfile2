@@ -21,8 +21,6 @@ pipeline {
                 echo 'echo zip class'
                 echo "module: ${SERVER_NAME}"
                 echo "class_list: ${CLASS_NAME}"
-                DIR=`pwd`
-                echo "DIR=${DIR}"
                 script{
                     def module_name = manager.build.buildVariables.get("SERVER_NAME")
                     manager.addShortText("module_name: " + module_name)
