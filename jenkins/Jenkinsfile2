@@ -11,7 +11,7 @@ pipeline {
             steps{
                 echo 'clear old class'
                 script{
-
+                    println("script println")
                 }
             }
         }
@@ -19,14 +19,21 @@ pipeline {
         stage('zip class'){
             steps{
                 echo 'echo zip class'
-                script{
-                    def module_name = manager.build.buildVariables.get("SERVER_NAME")
-                    manager.addShortText("module_name: " + module_name)
-                    println("-module_name: " + module_name)
-                    def tag = manager.build.buildVariables.get("CLASS_NAME_LIST")
-                    manager.addShortText("CLASS_NAME_LIST: " + tag)
-                    println("-CLASS_NAME_LIST: " + tag)
+//                 echo "module: ${SERVER_NAME}"
+//                 echo "class_list: ${CLASS_NAME}"
+//                 DIR= getpwd()
+//                 echo "DIR=${DIR}"
 
+                script{
+//                     def module_name = manager.build.buildVariables.get("SERVER_NAME")
+//                     def tag = manager.build.buildVariables.get("TAG")
+//                     println("-tag: " + tag)
+                       def module_name = "${SERVER_NAME}"
+                       def class_list = "${CLASS_NAME_LIST}"
+                       def branch = "${branch}"
+                       println("-module_name: " + module_name)
+                       println("-class_list: " + class_list)
+                       println("-branch: " + branch)
                 }
             }
         }
