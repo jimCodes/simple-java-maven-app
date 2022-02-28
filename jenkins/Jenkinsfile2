@@ -4,12 +4,9 @@ pipeline {
         stage('git_name'){
             steps{
                 echo 'git_name ${params.BRANCH}'
-                steps{
-                    checkout BbS(branches: [[name: "*/${params.BRANCH}"]], credentialsId: 'bitbucker-admin', extensions: [], id: '910561ef-c6cd-43a8-a0f2-cb88c79b8894', mirrorName: '', projectName: 'ROX', repositoryName: 'ro_server', serverId: '5672df9f-350c-40ec-8e9f-709521987da2', sshCredentialsId: '8d9bca9b-a5df-43e2-9f83-2ab4db8411da')
-                }
+                checkout BbS(branches: [[name: "*/${params.BRANCH}"]], credentialsId: 'bitbucker-admin', extensions: [], id: '910561ef-c6cd-43a8-a0f2-cb88c79b8894', mirrorName: '', projectName: 'ROX', repositoryName: 'ro_server', serverId: '5672df9f-350c-40ec-8e9f-709521987da2', sshCredentialsId: '8d9bca9b-a5df-43e2-9f83-2ab4db8411da')
             }
         }
-
         stage('build') {
             steps {
                 sh 'mvn clean install -T 1C -Dmaven.compile.fork=true -Dmaven.test.skip=true'
